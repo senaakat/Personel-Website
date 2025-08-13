@@ -1,36 +1,50 @@
 import React from 'react'
 import { FaInstagram, FaGithub, FaLinkedin } from "react-icons/fa";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import MenuItems from '../items/MenuItems.jsx';
+import { useEffect, useState } from 'react';
 
+const JobList = [
+  "I am a FullStack Developer...",
+  "I am a Web Developer...",
+  "I am a Computer Engineer...",
+  "I am a Software Developer...",
+  "I am a Freelancer...",
+  "I am a Designer",
+];
 
 export default function Home() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const navigate = useNavigate();
 
-  const goToPage = (index) => {
-    const targetId = MenuItems[index].id;
-    setCurrentIndex(index);
-    navigate(`/${targetId === 'home' ? '' : targetId}`);
-  };
+  const [currentJobIndex, setCurrentJobIndex] = useState(0);
+  const [subIndex, setSubIndex] = useState(0); 
+  const [deleting, setDeleting] = useState(false); 
+  const [blink, setBlink] = useState(true); 
+
+  useEffect(() => {
+    if(subIndex === JobList[currentJobIndex].length + 1 && !deleting) {
+      setTimeout(() => {setDeleting(true)}, 1000);
+      return;;
+  }
+
+  if(deleting && subIndex === 0) {
+      setDeleting(false);
+      setCurrentJobIndex((prevIndex) => (prevIndex + 1) % JobList.length);
+      return;
+  }
+  const timeout = setTimeout(() => {
+      setSubIndex((prev) => prev + (deleting ? -1 : 1));
+    }, deleting ? 50 : 100); 
+
+    return () => clearTimeout(timeout);
+  }, [subIndex, deleting, currentJobIndex]);
+
+  useEffect(() => {
+    const blinkInterval = setInterval(() => {
+      setBlink((prev) => !prev);
+    }, 500);
+    return () => clearInterval(blinkInterval);
+  }, []);
 
   return (
-    <div className="h-screen overflow-hidden" >
-      <button
-        onClick={() => goToPage(Math.max(0, currentIndex - 1))}
-        className="absolute left-10 top-1/2 -translate-y-1/2 z-20 text-9xl text-[rgb(254,146,118,1)] hover:text-gray-700 transition"
-      >
-        <IoIosArrowBack />
-      </button>
-      <button
-        onClick={() => goToPage(Math.min(MenuItems.length - 1, currentIndex + 1))}
-        className="absolute right-10 top-1/2 -translate-y-1/2 z-20 text-9xl text-[rgb(254,146,118,1)] hover:text-gray-700 transition"
-      >
-        <IoIosArrowForward />
-      </button>
-
+    <div className=" overflow-hidden" >
        {/* Sosyal medya ikonları (sola ortalanmış, dikey) */}
       <div className="absolute left-5 top-1/2 -translate-y-1/2 flex flex-col items-center space-y-6 z-10 ml-[27%]">
         {/* Instagram */}
@@ -38,7 +52,7 @@ export default function Home() {
           href="https://www.instagram.com/sena_akat"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-pink-700 hover:text-pink-900 text-3xl transition duration-300"
+          className="text-pink-500 hover:text-pink-900 text-3xl transition duration-300"
         >
           <FaInstagram />
         </a>
@@ -48,7 +62,7 @@ export default function Home() {
           href="https://github.com/senaakat"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-gray-800 hover:text-white text-3xl transition duration-300"
+          className="text-black  hover:text-white text-3xl transition duration-300"
         >
           <FaGithub />
         </a>
@@ -58,13 +72,13 @@ export default function Home() {
           href="https://www.linkedin.com/in/sena-akat-9baaa0226"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue-900 hover:text-blue-950 text-3xl transition duration-300"
+          className="text-[rgb(14,157,234)] hover:text-blue-950 text-3xl transition duration-300"
         >
           <FaLinkedin />
         </a>
       </div>
       <div className="flex flex-col mt-0 items-center justify-center h-full text-center ">
-       <div className="relative w-[400px] h-[400px] mt-10">
+       <div className="relative w-[400px] h-[400px]">
         {/* Arka plandaki gif */}
         <img
           src="/cv.gif"
@@ -87,7 +101,10 @@ export default function Home() {
         </h1>
 
         <h2 className="text-2xl font-mono  overflow-hidden whitespace-nowrap border-r-4 border-black animate-typing max-w-fit">
-          I'm Full-Stack Developer
+          {JobList[currentJobIndex].substring(0, subIndex)}
+            <span className={blink ? "border-r-2 border-black" : "border-r-2 border-transparent"}>
+              &nbsp;
+            </span>
         </h2>
       </div>
     </div>

@@ -1,13 +1,13 @@
 import React from "react";
-import  MenuItems  from "../../items/MenuItems.jsx";
+import  {MenuItems}  from "../../items/MenuItems.jsx";
 
 export default function Navbar() {
 
   return (
-    <nav className="w-full fixed top-0 left-0 z-50" >
-      <div className="w-full max-w-7xl mx-auto flex items-center ">
+    <nav className="w-full absolute top-0 left-0 z-50" >
+      <div className="w-full max-w-7xl mx-auto grid grid-cols-3  items-center ">
         {/* Logo (sol başta) */}
-        <div className="flex-shrink-0 ">
+        <div className="flex items-center">
           <img
             src="/logo2.gif"
             alt="Logo"
@@ -15,8 +15,8 @@ export default function Navbar() {
           />
         </div>
         {/* Menü (ortada) */}
-        <div className="flex-1 flex justify-center">
-          <div className="flex space-x-10">
+        <div className="justify-self-center">
+          <div className="flex space-x-10 whitespace-nowrap">
             {MenuItems.map((item) => (
               <a
                 key={item.name}
@@ -28,6 +28,7 @@ export default function Navbar() {
             ))}
           </div>
         </div>
+        <div className="justify-self-end" />
       </div>
     </nav>
   );

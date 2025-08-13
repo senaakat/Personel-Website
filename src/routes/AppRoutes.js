@@ -4,7 +4,7 @@ import Home from '../pages/Home.jsx';
 import About from '../pages/About.jsx';
 import Contact from '../pages/Contact.jsx';
 import Projects from '../pages/Projects.jsx';
-import Technologies from '../pages/Technologies.jsx';
+import Experience from '../pages/Experience.jsx';
 import { BrowserRouter, Route,Routes } from 'react-router-dom';
 
 export default function AppRoutes() {
@@ -15,7 +15,7 @@ export default function AppRoutes() {
         <Route path="/about" element={<Layout><About /></Layout>} />
         <Route path="/contact" element={<Layout><Contact /></Layout>} />
         <Route path="/projects" element={<Layout><Projects /></Layout>} />
-        <Route path="/technologies" element={<Layout><Technologies /></Layout>} />
+        <Route path="/experience" element={<Layout><Experience /></Layout>} />
       </Routes>
     </BrowserRouter>
   )
