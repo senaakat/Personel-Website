@@ -65,7 +65,7 @@ const formRef = useRef(null);
           If you have any inquiries, any feedback or just want to say hi, please use the contact form!
         </p>
         {/* Sağ taraf */}
-      <div className="flex flex-col w-[90%] bg-black/10 items-start mt-12 p-4 space-y-6 rounded-lg shadow-lg transform transition duration-300 ease-in-out hover:scale-125 hover:shadow-2xl"
+      <div className="flex flex-col w-[90%] bg-black/30 items-start mt-12 p-4 space-y-6 rounded-lg shadow-lg transform transition duration-300 ease-in-out hover:scale-125 hover:shadow-2xl"
           >
         <h3 className="text-3xl font-bold">Contact Info</h3>
 
@@ -104,7 +104,7 @@ const formRef = useRef(null);
       <form 
          ref={formRef}
          onSubmit={sendEmail}
-         className="flex flex-col w-[40%] bg-black/10 items-center mt-8 p-6 space-y-6 rounded-lg shadow-lg ">
+         className="flex flex-col w-[40%] bg-black/30 items-center mt-8 p-6 space-y-6 rounded-lg shadow-lg ">
       <h3 className=" text-4xl font-extrabold ">Message Me 😊</h3>
 
       {/* First & Last Name */}

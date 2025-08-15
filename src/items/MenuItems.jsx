@@ -115,6 +115,23 @@ const ProjectItems = [
     },
   },
   {
+    name: "My Personal Website",
+    label: " A personal portfolio website showcasing my projects and skills.",
+    images: [
+      "/myWebSite/1.png",
+      "/myWebSite/2.png",
+      "/myWebSite/3.png",
+      "/myWebSite/4.png",
+      "/myWebSite/5.png",
+      "/myWebSite/6.png",
+      "/myWebSite/7.png",
+      "/myWebSite/8.png",
+    ],
+    links: {
+      primary: "https://github.com/senaakat/Personel-Website"
+    },
+  },
+  {
     name: "Book Recommendation System",
     label: " A python algorithm for recommending books based on user preferences and reading history.",
 

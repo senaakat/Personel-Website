@@ -73,7 +73,8 @@ export default function Projects() {
         text-5xl 
         font-extrabold 
         tracking-wide 
-        text-transparent 
+        text-transparent
+        leading-[1.2] 
         bg-clip-text 
         bg-gradient-to-r 
         from-black 
