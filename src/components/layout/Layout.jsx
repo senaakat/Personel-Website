@@ -5,7 +5,7 @@ import Footer from './Footer.jsx';
 export default function Layout({children }) {
   return (
     <div className=" flex flex-col min-h-screen bg-fixed bg-cover bg-no-repeat bg-center" style={{ backgroundImage: "url('/1234.jpg')" }}>
-      <Navbar className="pt-[150px]" />
+      <Navbar className="pt-[150px] relative z-10 flex min-h-dvh flex-col" />
       <main className=" flex-grow pt-[110px] px-4">
         {children}
       </main>
