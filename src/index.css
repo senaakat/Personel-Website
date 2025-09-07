@@ -1,4 +1,7 @@
 @tailwind base;
+img, svg, video, canvas, audio, iframe, embed, object {
+  display: inline-block;
+}
 @tailwind components;
 @tailwind utilities;
 

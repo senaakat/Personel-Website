@@ -46,7 +46,7 @@ export default function Home() {
   return (
     <div className=" overflow-hidden" >
        {/* Sosyal medya ikonları (sola ortalanmış, dikey) */}
-      <div className="absolute left-5 top-1/2 -translate-y-1/2 flex flex-col items-center space-y-6 z-10 ml-[27%]">
+      <div className="absolute left-5 top-1/2 -translate-y-1/2 flex flex-col items-center space-y-6 z-10 md:ml-[27%]">
         {/* Instagram */}
         <a
           href="https://www.instagram.com/sena_akat"
@@ -83,7 +83,7 @@ export default function Home() {
         <img
           src="/cv.gif"
           alt="Loading..."
-          className="w-full h-full object-contain"
+          className="w-full h-full object-contain max-w-[90%] md:max-w-full"
         />
 
         {/* Görünmez buton */}
