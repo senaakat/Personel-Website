@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaPhone, FaMailBulk, FaUser } from 'react-icons/fa';
+import { FaMailBulk, FaUser, FaSearchLocation, FaClosedCaptioning, FaMap, FaMapMarked, FaMapMarkedAlt, FaMapMarkerAlt } from 'react-icons/fa';
 
 export default function ContactInfo() {
   return (
@@ -19,16 +19,16 @@ export default function ContactInfo() {
 
           {/* Phone */}
           <div className="flex items-start">
-            <FaPhone className="text-green-400 text-2xl mt-1 mr-3 w-6" />
+            <FaMapMarkerAlt className="text-[rgb(232,104,55)] text-2xl mt-1 mr-3 w-6" />
             <div className="border-l-2 border-gray-600 pl-4 flex flex-col items-start">
-              <h4 className="font-semibold mb-1">Call Me</h4>
-              <p className="text-gray-300">+90 505 637 69 84</p>
-            </div>
+              <h4 className="font-semibold mb-1">Location</h4>
+              <p className="text-gray-300">Istanbul, Turkey</p>
+            </div>s
           </div>
 
           {/* Email */}
           <div className="flex items-start">
-            <FaMailBulk className="text-green-400 text-2xl mt-1 mr-3 w-6" />
+            <FaMailBulk className="text-[rgb(21,173,203)] text-2xl mt-1 mr-3 w-6" />
             <div className="border-l-2 border-gray-600 pl-4 flex flex-col items-start">
               <h4 className="font-semibold mb-1">Email Me</h4>
               <p className="text-gray-300">senaakatt@gmail.com</p>
